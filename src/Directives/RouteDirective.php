@@ -1,8 +1,8 @@
 <?php
 
-namespace EasyBlade\Directives;
+namespace EasyPanel\Directives;
 
-use EasyBlade\Contract\Directivable;
+use EasyPanel\Contract\Directivable;
 
 class RouteDirective implements Directivable
 {

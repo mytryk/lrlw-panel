@@ -2,7 +2,21 @@
 
 namespace EasyPanel;
 
-use EasyBlade\Directives\{RouteDirective, UrlDirective};
+use EasyPanel\Directives\{AssetDirective,
+    ConfigDirective,
+    CountDirective,
+    EndConditionDirective,
+    ImageDirective,
+    isActiveDirective,
+    OldDirective,
+    RouteDirective,
+    ScriptDirective,
+    SessionDirective,
+    SessionExistsDirective,
+    StyleDirective,
+    UrlDirective,
+    UserDirective
+};
 use EasyPanel\Commands\{Actions\DeleteCRUD,
     Actions\Install,
     Actions\MakeCRUD,
@@ -31,6 +45,23 @@ use Livewire\Livewire;
 
 class EasyPanelServiceProvider extends ServiceProvider
 {
+    protected const DIRECTIVES = [
+        'route' => RouteDirective::class,
+        'url' => UrlDirective::class,
+        'asset' => AssetDirective::class,
+        'isActive' => isActiveDirective::class,
+        'count' => CountDirective::class,
+        'endcount' => EndConditionDirective::class,
+        'user' => UserDirective::class,
+        'sessionExists' => SessionExistsDirective::class,
+        'endsessionExists' => EndConditionDirective::class,
+        'session' => SessionDirective::class,
+        'image' => ImageDirective::class,
+        'style' => StyleDirective::class,
+        'script' => ScriptDirective::class,
+        'config' => ConfigDirective::class,
+        'old' => OldDirective::class,
+    ];
 
     public function register()
     {
@@ -103,24 +134,9 @@ class EasyPanelServiceProvider extends ServiceProvider
 
     protected function registerDirectives()
     {
-        /*protected const DIRECTIVES = [
-        'route' => RouteDirective::class,
-        'url' => UrlDirective::class,
-        'asset' => AssetDirective::class,
-        'isActive' => isActiveDirective::class,
-        'count' => CountDirective::class,
-        'endcount' => EndConditionDirective::class,
-        'user' => UserDirective::class,
-        'sessionExists' => SessionExistsDirective::class,
-        'endsessionExists' => EndConditionDirective::class,
-        'session' => SessionDirective::class,
-        'image' => ImageDirective::class,
-        'style' => StyleDirective::class,
-        'script' => ScriptDirective::class,
-        'config' => ConfigDirective::class,
-        'old' => OldDirective::class,
-    ];*/
-        Blade::directive('route', [\EasyBlade\Directives\RouteDirective::class, 'handle']);
+        foreach (static::DIRECTIVES as $directive => $class) {
+            Blade::directive($directive, [$class, 'handle']);
+        }
     }
 
     private function bindCommands()

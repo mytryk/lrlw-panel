@@ -1,8 +1,8 @@
 <?php
 
-namespace EasyBlade\Directives;
+namespace EasyPanel\Directives;
 
-use EasyBlade\Contract\Directivable;
+use EasyPanel\Contract\Directivable;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 
@@ -10,7 +10,7 @@ class isActiveDirective implements Directivable
 {
     public static function handle($parameter)
     {
-        return "<?php echo \\EasyBlade\\Directives\\isActiveDirective::render($parameter) ?>";
+        return "<?php echo \\EasyPanel\\Directives\\isActiveDirective::render($parameter) ?>";
     }
 
     public static function render($list, $type = 'active', $else = '')

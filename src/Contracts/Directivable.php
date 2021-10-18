@@ -1,6 +1,6 @@
 <?php
 
-namespace EasyBlade\Contract;
+namespace EasyPanel\Contract;
 
 interface Directivable
 {
