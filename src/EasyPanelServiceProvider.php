@@ -94,8 +94,6 @@ class EasyPanelServiceProvider extends ServiceProvider
             $this->mergePublishes();
         }
 
-        $this->registerDirectives();
-
         // Bind Artisan commands
         $this->bindCommands();
 
@@ -107,6 +105,8 @@ class EasyPanelServiceProvider extends ServiceProvider
 
         // Define routes if doesn't cached
         $this->defineRoutes();
+
+        $this->registerDirectives();
 
         // Load Livewire TODOs components
         $this->loadLivewireComponent();
@@ -135,9 +135,8 @@ class EasyPanelServiceProvider extends ServiceProvider
     protected function registerDirectives()
     {
         foreach (static::DIRECTIVES as $directive => $class) {
-            Blade::directive($directive, $class::handle());
+            Blade::directive($directive, $class . '::handle');
         }
-
     }
 
     private function bindCommands()
