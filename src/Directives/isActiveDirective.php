@@ -10,7 +10,7 @@ class isActiveDirective implements Directivable
 {
     public static function handle($parameter)
     {
-        return "<?php echo \\EasyPanel\\Directives\\isActiveDirective::render($parameter) ?>";
+        return "<?php echo EasyPanel\\Directives\\isActiveDirective::render($parameter) ?>";
     }
 
     public static function render($list, $type = 'active', $else = '')

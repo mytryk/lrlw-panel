@@ -34,7 +34,7 @@ if (!function_exists('getCrudConfig')) {
 if (!function_exists('crud')) {
     function crud($name)
     {
-        return \EasyPanel\Models\CRUD::query()->where('name', $name)->first();
+        return EasyPanel\Models\CRUD::query()->where('name', $name)->first();
     }
 }
 

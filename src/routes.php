@@ -10,7 +10,7 @@ Route::post('/logout', function () {
 })->name('logout');
 
 if (\Illuminate\Support\Facades\Schema::hasTable('cruds')) {
-    foreach (\EasyPanel\Models\CRUD::active() as $crud) {
+    foreach (EasyPanel\Models\CRUD::active() as $crud) {
         $crudConfig = getCrudConfig($crud->name);
         $name = ucfirst($crud->name);
         $component = "App\\Http\\Livewire\\Admin\\$name";
@@ -33,11 +33,11 @@ if (\Illuminate\Support\Facades\Schema::hasTable('cruds')) {
 
 if (config('easy_panel.todo')) {
     Route::prefix('todo')->name('todo.')->group(function () {
-        Route::get('/', \EasyPanel\Http\Livewire\Todo\Lists::class)->name('lists');
-        Route::get('/create', \EasyPanel\Http\Livewire\Todo\Create::class)->name('create');
+        Route::get('/', EasyPanel\Http\Livewire\Todo\Lists::class)->name('lists');
+        Route::get('/create', EasyPanel\Http\Livewire\Todo\Create::class)->name('create');
     });
 }
 
 Route::prefix('crud')->name('crud.')->group(function () {
-    Route::get('/', \EasyPanel\Http\Livewire\CRUD\Lists::class)->name('lists');
+    Route::get('/', EasyPanel\Http\Livewire\CRUD\Lists::class)->name('lists');
 });
