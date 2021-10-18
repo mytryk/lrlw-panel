@@ -45,23 +45,7 @@ use Livewire\Livewire;
 
 class EasyPanelServiceProvider extends ServiceProvider
 {
-    protected const DIRECTIVES = [
-        'route' => RouteDirective::class,
-        'url' => UrlDirective::class,
-        'asset' => AssetDirective::class,
-        'isActive' => isActiveDirective::class,
-        'count' => CountDirective::class,
-        'endcount' => EndConditionDirective::class,
-        'user' => UserDirective::class,
-        'sessionExists' => SessionExistsDirective::class,
-        'endsessionExists' => EndConditionDirective::class,
-        'session' => SessionDirective::class,
-        'image' => ImageDirective::class,
-        'style' => StyleDirective::class,
-        'script' => ScriptDirective::class,
-        'config' => ConfigDirective::class,
-        'old' => OldDirective::class,
-    ];
+
 
     public function register()
     {
@@ -134,9 +118,25 @@ class EasyPanelServiceProvider extends ServiceProvider
 
     protected function registerDirectives()
     {
-        foreach (static::DIRECTIVES as $directive => $class) {
-            Blade::directive($directive, [get_class($class), 'handle']);
-        }
+        /*protected const DIRECTIVES = [
+        'route' => RouteDirective::class,
+        'url' => UrlDirective::class,
+        'asset' => AssetDirective::class,
+        'isActive' => isActiveDirective::class,
+        'count' => CountDirective::class,
+        'endcount' => EndConditionDirective::class,
+        'user' => UserDirective::class,
+        'sessionExists' => SessionExistsDirective::class,
+        'endsessionExists' => EndConditionDirective::class,
+        'session' => SessionDirective::class,
+        'image' => ImageDirective::class,
+        'style' => StyleDirective::class,
+        'script' => ScriptDirective::class,
+        'config' => ConfigDirective::class,
+        'old' => OldDirective::class,
+    ];*/
+        Blade::directive('route', [RouteDirective::class, 'handle']);
+        Blade::directive('url', [UrlDirective::class, 'handle']);
     }
 
     private function bindCommands()
