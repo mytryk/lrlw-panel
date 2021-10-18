@@ -2,21 +2,7 @@
 
 namespace EasyPanel;
 
-use EasyBlade\Directives\{AssetDirective,
-    ConfigDirective,
-    CountDirective,
-    EndConditionDirective,
-    ImageDirective,
-    isActiveDirective,
-    OldDirective,
-    RouteDirective,
-    ScriptDirective,
-    SessionDirective,
-    SessionExistsDirective,
-    StyleDirective,
-    UrlDirective,
-    UserDirective
-};
+use EasyBlade\Directives\{RouteDirective, UrlDirective};
 use EasyPanel\Commands\{Actions\DeleteCRUD,
     Actions\Install,
     Actions\MakeCRUD,
@@ -45,7 +31,6 @@ use Livewire\Livewire;
 
 class EasyPanelServiceProvider extends ServiceProvider
 {
-
 
     public function register()
     {
@@ -135,8 +120,7 @@ class EasyPanelServiceProvider extends ServiceProvider
         'config' => ConfigDirective::class,
         'old' => OldDirective::class,
     ];*/
-        Blade::directive('route', [RouteDirective::class, 'handle']);
-        Blade::directive('url', [UrlDirective::class, 'handle']);
+        Blade::directive('route', [\EasyBlade\Directives\RouteDirective::class, 'handle']);
     }
 
     private function bindCommands()
