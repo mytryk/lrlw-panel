@@ -2,7 +2,7 @@
 
 namespace EasyPanel\Directives;
 
-use EasyPanel\Contract\Directivable;
+use EasyPanel\Contracts\Directivable;
 
 class SessionExistsDirective implements Directivable
 {

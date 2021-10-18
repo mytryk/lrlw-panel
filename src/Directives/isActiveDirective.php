@@ -2,7 +2,7 @@
 
 namespace EasyPanel\Directives;
 
-use EasyPanel\Contract\Directivable;
+use EasyPanel\Contracts\Directivable;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 
