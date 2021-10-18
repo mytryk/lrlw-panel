@@ -135,7 +135,7 @@ class EasyPanelServiceProvider extends ServiceProvider
     protected function registerDirectives()
     {
         foreach (static::DIRECTIVES as $directive => $class) {
-            Blade::directive($directive, [$class, 'handle']);
+            Blade::directive($directive, [get_class($class), 'handle']);
         }
     }
 
