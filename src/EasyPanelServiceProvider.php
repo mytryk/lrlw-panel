@@ -45,7 +45,7 @@ use Livewire\Livewire;
 
 class EasyPanelServiceProvider extends ServiceProvider
 {
-    const DIRECTIVES = [
+    protected const DIRECTIVES = [
         'route' => RouteDirective::class,
         'url' => UrlDirective::class,
         'asset' => AssetDirective::class,
@@ -132,11 +132,12 @@ class EasyPanelServiceProvider extends ServiceProvider
         $this->publishes([__DIR__ . '/Commands/stub' => base_path('/stubs/panel')], 'easy-panel-stubs');
     }
 
-    public function registerDirectives()
+    protected function registerDirectives()
     {
         foreach (static::DIRECTIVES as $directive => $class) {
             Blade::directive($directive, [$class, 'handle']);
         }
+
     }
 
     private function bindCommands()
