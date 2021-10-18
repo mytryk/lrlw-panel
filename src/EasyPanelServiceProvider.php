@@ -2,6 +2,21 @@
 
 namespace EasyPanel;
 
+use EasyBlade\Directives\{AssetDirective,
+    ConfigDirective,
+    CountDirective,
+    EndConditionDirective,
+    ImageDirective,
+    isActiveDirective,
+    OldDirective,
+    RouteDirective,
+    ScriptDirective,
+    SessionDirective,
+    SessionExistsDirective,
+    StyleDirective,
+    UrlDirective,
+    UserDirective
+};
 use EasyPanel\Commands\{Actions\DeleteCRUD,
     Actions\Install,
     Actions\MakeCRUD,
@@ -16,7 +31,8 @@ use EasyPanel\Commands\{Actions\DeleteCRUD,
     CRUDActions\MakeUpdate,
     UserActions\DeleteAdmin,
     UserActions\GetAdmins,
-    UserActions\MakeAdmin};
+    UserActions\MakeAdmin
+};
 use EasyPanel\Http\Livewire\Todo\Create;
 use EasyPanel\Http\Livewire\Todo\Lists;
 use EasyPanel\Http\Livewire\Todo\Single;
@@ -24,6 +40,7 @@ use EasyPanel\Http\Middleware\isAdmin;
 use EasyPanel\Http\Middleware\LangChanger;
 use EasyPanel\Support\Contract\{AuthFacade, UserProviderFacade};
 use Illuminate\{Routing\Router, Support\Facades\Route, Support\ServiceProvider};
+use Illuminate\Support\Facades\Blade;
 use Livewire\Livewire;
 
 class EasyPanelServiceProvider extends ServiceProvider
