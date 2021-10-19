@@ -7,7 +7,7 @@ use EasyPanel\Support\Auth\ColumnAuth;
 /**
  * Class AuthFacade
  * @package EasyPanel\Support\Contract
- * @method static checkIsAdmin(int $id)
+ * @method static checkIsCRUDPanelAdmin(int $id)
  * @see ColumnAuth
  */
 class AuthFacade extends BaseFacade

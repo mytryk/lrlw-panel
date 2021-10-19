@@ -7,7 +7,7 @@ use EasyPanel\Support\Contract\UserProviderFacade;
 class ColumnAuth
 {
 
-    public function checkIsAdmin($userId)
+    public function checkIsCRUDPanelAdmin($userId)
     {
         $user = UserProviderFacade::findUser($userId);
 
