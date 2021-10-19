@@ -6,10 +6,10 @@ use EasyPanel\Contracts\Directivable;
 
 class ImageDirective implements Directivable
 {
-    public static function handle(string $name, array $parameters = [])
+    public static function handle($parameter)
     {
-        $name = str_replace(['"', "'"], null, $name);
-        $array = explode(',', $name);
+        $parameter = str_replace(['"', "'"], null, $parameter);
+        $array = explode(',', $parameter);
         $photo = trim($array[0]);
         $class = trim(@$array[1]) ?? null;
 

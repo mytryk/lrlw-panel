@@ -6,8 +6,8 @@ use EasyPanel\Contracts\Directivable;
 
 class SessionDirective implements Directivable
 {
-    public static function handle(string $name, array $parameters = [])
+    public static function handle($parameter)
     {
-        return "<?php if(\session()->exists($name)){ echo \session()->get({$name}); } ?>";
+        return "<?php if(\session()->exists($parameter)){ echo \session()->get({$parameter}); } ?>";
     }
 }

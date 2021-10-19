@@ -6,8 +6,8 @@ use EasyPanel\Contracts\Directivable;
 
 class ConfigDirective implements Directivable
 {
-    public static function handle(string $name, array $parameters = [])
+    public static function handle($parameter)
     {
-        return "<?php echo config({$name}) ?>";
+        return "<?php echo config({$parameter}) ?>";
     }
 }

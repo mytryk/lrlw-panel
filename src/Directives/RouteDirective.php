@@ -6,8 +6,8 @@ use EasyPanel\Contracts\Directivable;
 
 class RouteDirective implements Directivable
 {
-    public static function handle(string $name, array $parameters = [])
+    public static function handle($parameter)
     {
-        return '<?php echo route($name, $parameters) ?>';
+        return '<?php echo route(' . $parameter . ') ?>';
     }
 }
