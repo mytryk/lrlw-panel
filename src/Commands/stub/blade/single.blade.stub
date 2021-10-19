@@ -4,7 +4,7 @@
         <td>
 
             @if(getCrudConfig('{{ model }}')->update)
-                <a href="@route(getRouteName().'.{{ routeName }}.update', ['{{ modelName }}' => ${{ model }}->id])" class="btn text-primary mt-1">
+                <a href="{{ route(config('easy_panel.route_prefix').'.{{ routeName }}.update', ['{{ modelName }}' => ${{ model }}->id]) }}" class="btn text-primary mt-1">
                     <i class="icon-pencil"></i>
                 </a>
             @endif
