@@ -6,10 +6,10 @@ use EasyPanel\Contracts\Directivable;
 
 class StyleDirective implements Directivable
 {
-    public static function handle($parameter)
+    public static function handle(string $name, array $parameters = [])
     {
-        $parameter = str_replace(['"', "'"], null, $parameter);
+        $name = str_replace(['"', "'"], null, $name);
 
-        return "<link href='{$parameter}' rel='stylesheet'>";
+        return "<link href='{$name}' rel='stylesheet'>";
     }
 }

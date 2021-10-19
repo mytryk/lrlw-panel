@@ -82,7 +82,7 @@ class Create extends Component
 
     public function updatedModel($value)
     {
-        $value = $value == '' ? null : $value;
+        $value = $value === '' ? null : $value;
         $this->models = $this->getModels($value);
         $this->showDropdown();
     }

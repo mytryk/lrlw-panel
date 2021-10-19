@@ -6,8 +6,8 @@ use EasyPanel\Contracts\Directivable;
 
 class AssetDirective implements Directivable
 {
-    public static function handle($parameter)
+    public static function handle(string $name, array $parameters = [])
     {
-        return '<?php echo asset(' . $parameter . ') ?>';
+        return '<?php echo asset(' . $name . ') ?>';
     }
 }

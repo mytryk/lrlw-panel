@@ -6,9 +6,9 @@ use EasyPanel\Contracts\Directivable;
 
 class OldDirective implements Directivable
 {
-    public static function handle($parameter)
+    public static function handle(string $name, array $parameters = [])
     {
-        $array = explode(',', $parameter);
+        $array = explode(',', $name);
         $oldValue = trim($array[0]);
         $secondParam = trim(@$array[1]);
         if ($secondParam) {

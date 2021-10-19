@@ -6,8 +6,8 @@ use EasyPanel\Contracts\Directivable;
 
 class UrlDirective implements Directivable
 {
-    public static function handle($parameter)
+    public static function handle(string $name, array $parameters = [])
     {
-        return '<?php echo url(' . $parameter . ') ?>';
+        return '<?php echo url(' . $name . ') ?>';
     }
 }

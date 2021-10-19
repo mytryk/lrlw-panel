@@ -8,9 +8,9 @@ use Illuminate\Support\Str;
 
 class isActiveDirective implements Directivable
 {
-    public static function handle($parameter)
+    public static function handle(string $name, array $parameters = [])
     {
-        return "<?php echo EasyPanel\\Directives\\isActiveDirective::render($parameter) ?>";
+        return "<?php echo EasyPanel\\Directives\\isActiveDirective::render($name) ?>";
     }
 
     public static function render($list, $type = 'active', $else = '')
